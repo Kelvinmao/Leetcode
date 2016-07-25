@@ -10,3 +10,4 @@ public:
         return new_len;
     }
 };
+
