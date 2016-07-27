@@ -16,15 +16,15 @@ public:
                     triplet[1]=nums[mid];
                     triplet[2]=nums[right];
                     res.push_back(triplet);
-                    while(mid<right&&nums[++mid]==tmp_mid);
-                    while(mid<right&&nums[--right]==tmp_right);
+                    while(mid<right&&nums[++mid]==tmp_mid);/*防止mid造成重复*/
+                    while(mid<right&&nums[--right]==tmp_right);/*防止right造成重复*/
                 }
                 else if(nums[mid]+nums[right]<tmp)
                     mid++;
                 else
                     right--;
             }
-            while(left+1<size&&nums[left]==nums[left+1])
+            while(left+1<size&&nums[left]==nums[left+1])/*防止*/
                 left++;
         }
         return res;
