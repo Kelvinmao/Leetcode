@@ -41,3 +41,39 @@ public:
     }
 };
 
+/*solution3*/
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        if(matrix.empty()||matrix[0].empty())
+            return false;
+        int low=0,size=matrix.size(),high=size-1,mid=0;
+        while(low<=high){
+            mid=low+(high-low)/2;
+            if(matrix[mid][0]==target)
+                return true;
+            if(matrix[mid][0]>target)
+                high=mid-1;
+            else
+                low=mid+1;
+        }
+        int row=high;
+        
+        if(row<0)
+            return false;
+        low=0;
+        high=matrix[0].size()-1;
+        mid=0;
+        while(low<=high){
+            mid=low+(high-low)/2;
+            if(matrix[row][mid]==target)
+                return true;
+            if(matrix[row][mid]>target)
+                high=mid-1;
+            else
+                low=mid+1;
+        }
+        return false;
+    }
+};
+
