@@ -51,3 +51,23 @@ public:
     }
 };
 
+/*solution4 use hash-table time-complexity O(n) memory-complexity O(n)*/
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        if(nums.size()<2)
+            return nums[0];
+        unordered_map<int,int> num_count;
+        int i=0,size=nums.size();
+        for(i=0;i<size;i++){
+            if(num_count.find(nums[i])==num_count.end())
+                num_count[nums[i]]=0;
+            else
+                num_count[nums[i]]++;
+            if(num_count[nums[i]]>=size/2)
+                return nums[i];
+        }
+        return -1;
+    }
+};
+
