@@ -37,11 +37,9 @@ public:
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        if(nums.size()<2)
-            return nums[0];
-        int size=nums.size(),count=1,curIndex=0;
-        for(int i=1;i<size;i++){
-            nums[i]==nums[curIndex]?count++:count--;
+        int curIndex=0,count=0,i=0;
+        for(i=0;i<nums.size();i++){
+            nums[curIndex]==nums[i]?count++:count--;
             if(!count){
                 curIndex=i;
                 count=1;
@@ -50,6 +48,7 @@ public:
         return nums[curIndex];
     }
 };
+
 
 /*solution4 use hash-table time-complexity O(n) memory-complexity O(n)*/
 class Solution {
