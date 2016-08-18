@@ -1,3 +1,4 @@
+/*solution1 use hash-table*/
 class Solution {
 public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
@@ -12,3 +13,5 @@ public:
         return res;
     }
 };
+
+
