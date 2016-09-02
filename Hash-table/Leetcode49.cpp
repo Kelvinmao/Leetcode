@@ -29,7 +29,7 @@ public:
         return anagrams;
     }
 };
-
+	
 /*version 2.0*/
 class Solution {
 private:
