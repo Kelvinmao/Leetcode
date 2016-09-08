@@ -33,3 +33,29 @@ struct ListNode* reverseList(struct ListNode* head) {
     head->next=NULL;
 	return p;
 }
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(!head||!head->next)
+            return head;
+        struct ListNode *cur=head,*pnext=cur->next,*prev=NULL;
+        cur->next=NULL;
+        while(pnext){
+            prev=pnext->next;
+            pnext->next=cur;
+            cur=pnext;
+            pnext=prev;
+        }
+        head=cur;
+        return head;
+    }
+};
