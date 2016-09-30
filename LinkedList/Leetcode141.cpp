@@ -2,19 +2,22 @@
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
- *     struct ListNode *next;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-bool hasCycle(struct ListNode *head) {
-    struct ListNode * pmove=head;
-    struct ListNode * qmove=head;
-    if(!head)
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if(!head)
+            return false;
+        struct ListNode * pmove=head,* qmove=head;
+        while(pmove&&qmove&&qmove->next){
+            pmove=pmove->next;
+            qmove=qmove->next->next;
+            if(pmove==qmove)
+                return true;
+        }
         return false;
-    while(pmove&&qmove&&qmove->next){
-        pmove=pmove->next;
-        qmove=qmove->next->next;
-        if(pmove==qmove)
-            return true;
     }
-    return false;
-}
+};
